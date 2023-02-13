@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LogIn">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:scaleType="centerCrop" />
+
+        <LinearLayout
+            android:id="@+id/signInLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="?actionBarSize"
+                android:text="Sign in"
+
+                android:textColor="#927E96"
+                android:textSize="40sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/emailLoginField"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:layout_margin="20dp"
+                android:background="@drawable/rounded_corner"
+                android:hint="Email"
+                android:paddingStart="10dp"
+                android:paddingLeft="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="#8D7A91"
+                android:textSize="17sp" />
+
+            <EditText
+                android:id="@+id/passwordLoginField"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:layout_margin="20dp"
+                android:background="@drawable/rounded_corner"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:paddingStart="10dp"
+                android:paddingLeft="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="#8D7A91"
+                android:textSize="17sp" />
+
+            <Button
+                android:id="@+id/loginBtn"
+
+                android:layout_width="123dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorPrimary"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="sign in"
+                android:textColor="#fff" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Forgot Password?"
+                android:textColor="@color/black" />
+
+
+            <TextView
+                android:id="@+id/registerText"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:layout_marginBottom="20dp"
+                android:text="Don't have a donor account? Register here"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

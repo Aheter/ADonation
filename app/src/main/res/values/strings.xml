@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">ADonation</string>
+    <string name="user_name">Name</string>
+    <string name="user_birthday">Birthday</string>
+    <string name="user_gender">Gender</string>
+    <string name="user_submit">Submit</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+
+    <string name="bloodtype">Blood Type</string>
+    <string name="newdonor_auth">Enter Authentication Detailes</string>
+
+    <string name="newdonor_createnew">Create a New Donor</string>
+    <string name="registration_title">Register Here</string>
+
+    <string name="text_greeting">Hello %s,</string>
+    <string name="text_greeting2">how are you today?</string>
+
+    <string-array name="gender">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Other</item>
+
+    </string-array>
+
+</resources>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "108470300582",
+    "project_id": "adonation-5f6dc",
+    "storage_bucket": "adonation-5f6dc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:108470300582:android:1d81ecc87bbf7a24236967",
+        "android_client_info": {
+          "package_name": "com.example.adonation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "108470300582-moq03p5eoov7g16hd99ffl385j5c5tv2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSm_EA14Xu3vDBDSgwoN9OtKebjokoIvc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "108470300582-moq03p5eoov7g16hd99ffl385j5c5tv2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:background="@drawable/ic_login"
+    tools:viewBindingIgnore="true"
+    >
+
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="215dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="150dp"
+        android:src="@drawable/baseline_water_drop_24"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:text="Blood Donors App"
+        android:textColor="#fff"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textStyle="bold"
+        />
+
+
+
+</LinearLayout>
