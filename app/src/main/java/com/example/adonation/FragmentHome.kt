@@ -1,50 +1,89 @@
 package com.example.adonation
 
+import android.app.ProgressDialog
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Recycler
+import com.example.adonation.data.Post
+import com.example.adonation.data.PostsList
 import com.example.adonation.databinding.FragmentPostsBinding
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 class FragmentHome : Fragment() {
-//    //var texts: MutableList<String?> = ArrayList()
-//   // private var arrayList: MutableList<String?> = ArrayList()
-//    private var _binding: FragmentPostsBinding?=null
-//    private val binding get() = _binding!!
-//
-//    override fun onCreateView(
-//        inflater: LayoutInflater,
-//        container: ViewGroup?,
-//        savedInstanceState: Bundle?
-//    ): View? {
-//        _binding=FragmentPostsBinding.inflate(inflater,container, false)
-//
-//        //val rootView = inflater.inflate(R.layout.fragment_posts, container, false)
-//
-//        val rView =binding.findViewById<RecyclerView>(R.id.recyclerView)
-//      //  val arrayList = ArrayList<String>()
-////        val arrayAdapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,arrayList)
-////        listView.adapter = arrayAdapter
-//        //val editText = rootView.findViewById<EditText>(R.id.editText)
-//        val post = rootView.findViewById<Button>(R.id.post)
-//        post.setOnClickListener {
-//            editText.getText().toString()
-//        }
-//        return binding.root
-//    }
-//
-//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        super.onViewCreated(view, savedInstanceState)
-//
-//        binding.recycler.adapter
-//    }
-//
-//    override fun onDestroyView() {
-//        super.onDestroyView()
-//        _binding=null
-//    }
+    private var _binding: FragmentPostsBinding?=null
+    private val binding get() = _binding!!
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        _binding=FragmentPostsBinding.inflate(inflater,container, false)
+
+        val rView =binding.recyclerView
+        val editText = binding.editText
+        val postBtn = binding.post
+
+        postBtn.setOnClickListener {
+            val msg = editText.text.toString()
+            if (msg.isEmpty()) {
+                Toast.makeText(context, "Please enter text.", Toast.LENGTH_LONG).show()
+                return@setOnClickListener
+            }
+            val formatter = DateTimeFormatter.ofPattern(" dd-MM-yyyy HH:mm")
+            val timeD= LocalDateTime.now().format(formatter)
+            val post = Post("USER", msg, "PIC",timeD)
+            PostsList.add(post)
+            editText.setText("")
+            binding.recyclerView.adapter?.notifyItemInserted(0)
+            binding.recyclerView.scrollToPosition(0)
+
+
+        }
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.recyclerView.adapter=postAdapter(PostsList.posts )
+        binding.recyclerView.layoutManager=LinearLayoutManager(requireContext())
+
+        ItemTouchHelper(object :ItemTouchHelper.Callback(){
+            override fun getMovementFlags(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder
+            )= makeFlag(ItemTouchHelper.ACTION_STATE_SWIPE,ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT )
+
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+                TODO("Not yet implemented")
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                PostsList.remove(viewHolder.adapterPosition)
+                binding.recyclerView.adapter!!.notifyItemRemoved(viewHolder.adapterPosition)
+            }
+        }).attachToRecyclerView(binding.recyclerView)
+
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding=null
+    }
 }

@@ -66,7 +66,7 @@
                 android:layout_below="@+id/user_profile_name"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
-                android:text="Youre favorite donation locations"
+                android:text="Your favorite donation locations"
                 android:textColor="#fff"
                 android:textSize="14sp" />
         </RelativeLayout>
