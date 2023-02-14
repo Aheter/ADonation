@@ -70,7 +70,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="title_summary"
+                                android:text="summary"
                                 android:textAppearance="?attr/textAppearanceHeadline6"
                                 />
                             <HorizontalScrollView
@@ -79,35 +79,6 @@
                                 android:layout_height="wrap_content">
 
                             </HorizontalScrollView>
-                            <!-- Donated Total -->
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="16dp"
-                                android:text="text_donated"
-                                android:textAppearance="?attr/textAppearanceBody2"
-                                android:textColor="?android:attr/textColorSecondary"/>
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content">
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="2dp"
-                                    android:layout_marginLeft="24dp"
-                                    tools:text="450"
-                                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                                    android:textColor="@color/colorPrimary"
-                                    />
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="2dp"
-                                    android:text="ml"
-                                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                                    android:textColor="?android:attr/textColorSecondary"
-                                    />
-                            </LinearLayout>
 
                             <!-- Donated This year-->
                             <TextView
@@ -137,37 +108,6 @@
                                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                                     android:textColor="?android:attr/textColorSecondary"/>
                             </LinearLayout>
-                            <!-- To next donation-->
-                            <TextView
-
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="16dp"
-                                android:text="left_to_next_donation"
-                                android:textAppearance="?attr/textAppearanceBody2"
-                                android:textColor="?android:attr/textColorSecondary"
-                                />
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content">
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="2dp"
-                                    android:layout_marginLeft="24dp"
-                                    tools:text="11"
-                                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                                    android:textColor="@color/colorPrimary"
-                                    />
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="2dp"
-                                    tools:text="days"
-                                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                                    android:textColor="?android:attr/textColorSecondary"
-                                    />
-                            </LinearLayout>
 
                         </LinearLayout>
                     </LinearLayout>
@@ -195,7 +135,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="schedule_upcomingtext"
+                                android:text="Last Donation"
                                 android:textAppearance="?attr/textAppearanceHeadline6"
                                 />
                             <!-- nothing text -->
@@ -230,14 +170,7 @@
                                 <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content">
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginLeft="16dp"
-                                        android:text="schedule_in"
-                                        tools:text="In"
-                                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                                        android:textColor="?android:attr/textColorSecondary"/>
+
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
@@ -251,7 +184,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="2dp"
                                         android:layout_marginLeft="4dp"
-                                        tools:text="days"
+                                        tools:text="days ago"
                                         android:textAppearance="@style/TextAppearance.AppCompat.Large"
                                         android:textColor="?android:attr/textColorSecondary"/>
                                 </LinearLayout>
@@ -260,7 +193,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="16dp"
-                                    tools:text="cz., 28 sty 2021"
+                                    tools:text="@tools:sample/date/ddmmyy"
                                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                                     android:textColor="?android:attr/textColorSecondary"/>
                                 <!-- Location -->
@@ -270,41 +203,16 @@
                                     android:layout_height="wrap_content"
                                     android:orientation="vertical"
                                     android:layout_marginTop="12dp">
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                                        android:textColor="?android:attr/textColorSecondary"
-                                        android:text="donation_location"/>
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginLeft="16dp"
-                                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                                        android:textColor="?android:attr/textColorSecondary"
-                                        tools:text="Location"/>
+
                                 </LinearLayout>
-                                <!-- Note -->
+
                                 <LinearLayout
                                     android:id="@+id/viewScheduleNote"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:orientation="vertical"
                                     android:layout_marginTop="12dp">
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="16dp"
-                                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                                        android:textColor="?android:attr/textColorSecondary"
-                                        android:text="donation_note"/>
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginLeft="16dp"
-                                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                                        android:textColor="?android:attr/textColorSecondary"
-                                        tools:text="Notatka"/>
+
                                 </LinearLayout>
                             </LinearLayout>
                         </LinearLayout>
@@ -320,7 +228,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginEnd="8dp"
-                                android:text="Schedule"
+                                android:text="Add Donation"
                                 style="?attr/borderlessButtonStyle"/>
                             <com.google.android.material.button.MaterialButton
                                 android:id="@+id/btnScheduleRemove"
@@ -335,35 +243,10 @@
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
-                <!-- Statistics -->
-                <com.google.android.material.card.MaterialCardView
-                    android:visibility="gone"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/base_margin"
-                    android:layout_marginHorizontal="@dimen/base_margin"
-                    app:strokeWidth="1dp"
-                    app:strokeColor="@color/colorPrimaryDark">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:paddingHorizontal="24dp"
-                            android:paddingTop="24dp">
-                            <!-- Title, secondary and supporting text -->
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Statistics"
-                                android:textAppearance="?attr/textAppearanceHeadline6"/>
-                        </LinearLayout>
 
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
-            </LinearLayout>
-        </ScrollView>
+
+
+                </LinearLayout>
+            </ScrollView>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
