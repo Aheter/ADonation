@@ -7,22 +7,33 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.example.adonation.databinding.FragmentPostsBinding
+import com.example.adonation.databinding.FragmentSummaryBinding
+
 class FragmentSummary : Fragment() {
+    private var _binding: FragmentSummaryBinding?=null
+    private val binding get() = _binding!!
+
     override fun onCreateView(
 
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val rootView = inflater.inflate(R.layout.fragment_summary, container, false)
 
-//        val donation = rootView.findViewById<Button>(R.id.addDonation)
-//        donation.setOnClickListener{
-//            val intent = Intent(this,NewDonation::class.java)
-//            startActivity(intent)
-//        }
+        _binding=FragmentSummaryBinding.inflate(inflater,container, false)
+        val btnAddDonation= binding.addDonation
+        btnAddDonation.setOnClickListener {
+            startActivity(
+                Intent(
+                    context,
+                    NewDonation::class.java
+                )
+            )
 
-        return rootView
+        }
+
+        return binding.root
     }
 
 

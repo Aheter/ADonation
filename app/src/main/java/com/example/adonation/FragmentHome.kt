@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.annotation.RequiresApi
+//import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,14 +17,17 @@ import androidx.recyclerview.widget.RecyclerView.Recycler
 import com.example.adonation.data.Post
 import com.example.adonation.data.PostsList
 import com.example.adonation.databinding.FragmentPostsBinding
+import java.sql.Time
+import java.text.SimpleDateFormat
 import java.time.LocalDateTime
+import java.time.LocalTime
 import java.time.format.DateTimeFormatter
+import java.util.*
 
 class FragmentHome : Fragment() {
     private var _binding: FragmentPostsBinding?=null
     private val binding get() = _binding!!
 
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -41,8 +45,12 @@ class FragmentHome : Fragment() {
                 Toast.makeText(context, "Please enter text.", Toast.LENGTH_LONG).show()
                 return@setOnClickListener
             }
-            val formatter = DateTimeFormatter.ofPattern(" dd-MM-yyyy HH:mm")
-            val timeD= LocalDateTime.now().format(formatter)
+            val formatter = SimpleDateFormat(" dd-MM-yyyy hh:mm")
+            val now = Date()
+            val timeD = formatter.format(now)
+
+           // val formatter = DateTimeFormatter.ofPattern(" dd-MM-yyyy HH:mm")
+         //   val timeD= LocalDateTime.now().format(formatter)
             val post = Post("USER", msg, "PIC",timeD)
             PostsList.add(post)
             editText.setText("")
