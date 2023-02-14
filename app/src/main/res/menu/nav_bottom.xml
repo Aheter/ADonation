@@ -16,5 +16,10 @@
         android:icon="@drawable/ic_baseline_person_24"
         android:title="profile" />
 
+    <item
+        android:id="@+id/favorite"
+        android:icon="@drawable/ic_baseline_person_24"
+        android:title="favorite" />
+
 
 </menu>

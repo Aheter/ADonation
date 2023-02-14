@@ -14,8 +14,7 @@ class postAdapter(val posts:List<Post>):RecyclerView.Adapter<postAdapter.PostVie
             binding.userName.text=post.userName
             binding.textInPost.text=post.textInPost
             binding.postTime.text=post.postTime
-
-
+            binding.isFavorite.isChecked=post.isFavorite
 
         }
     }

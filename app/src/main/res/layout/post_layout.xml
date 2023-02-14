@@ -39,6 +39,12 @@
                 android:textStyle="bold"
                 android:layout_marginTop="6dp"
                 android:id="@+id/textInPost"/>
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/isFavorite"
+                android:layout_width="52dp"
+                android:layout_height="19dp"
+                android:textSize="20dp" />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -46,6 +52,8 @@
                 android:textStyle="bold"
                 android:layout_marginTop="6dp"
                 android:id="@+id/postTime"/>
+
+
 
         </LinearLayout>
 

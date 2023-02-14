@@ -46,12 +46,12 @@ class FragmentHome : Fragment() {
                 return@setOnClickListener
             }
             val formatter = SimpleDateFormat(" dd-MM-yyyy hh:mm")
-            val now = Date()
+            val now = Calendar.getInstance().time
             val timeD = formatter.format(now)
 
            // val formatter = DateTimeFormatter.ofPattern(" dd-MM-yyyy HH:mm")
          //   val timeD= LocalDateTime.now().format(formatter)
-            val post = Post("USER", msg, "PIC",timeD)
+            val post = Post("USER", msg, "PIC", false, timeD)
             PostsList.add(post)
             editText.setText("")
             binding.recyclerView.adapter?.notifyItemInserted(0)

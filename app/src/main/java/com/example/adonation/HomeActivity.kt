@@ -27,6 +27,10 @@ class HomeActivity : AppCompatActivity() {
                     loadFragment(FragmentProfile())
                     true
                 }
+                R.id.favorite -> {
+                    loadFragment(FragmentFavorite())
+                    true
+                }
 
                 else -> {false}
             }
