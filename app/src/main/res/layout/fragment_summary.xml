@@ -85,7 +85,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="16dp"
-                                android:text="donated_this_year"
+                                android:text="@string/donated_this_year"
                                 android:textAppearance="?attr/textAppearanceBody2"
                                 android:textColor="?android:attr/textColorSecondary"
                                 />
@@ -104,7 +104,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="2dp"
-                                    android:text="ml"
+                                    android:text="@string/ml"
                                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                                     android:textColor="?android:attr/textColorSecondary"/>
                             </LinearLayout>
@@ -135,7 +135,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Last Donation"
+                                android:text="@string/last_donation"
                                 android:textAppearance="?attr/textAppearanceHeadline6"
                                 />
                             <!-- nothing text -->
@@ -146,7 +146,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="16dp"
-                                android:text="schedule_nothingyet"
+                                android:text="@string/schedule_nothingyet"
                                 android:textAppearance="?attr/textAppearanceBody2"
                                 android:textColor="?android:attr/textColorSecondary"
                                 />
@@ -228,16 +228,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginEnd="8dp"
-                                android:text="Add Donation"
-                                style="?attr/borderlessButtonStyle"/>
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/btnScheduleRemove"
-                                android:visibility="gone"
-                                android:layout_marginLeft="4dp"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginEnd="8dp"
-                                android:text="schedule_buttonremove"
+                                android:text="@string/add_donation"
                                 style="?attr/borderlessButtonStyle"/>
                         </LinearLayout>
                     </LinearLayout>

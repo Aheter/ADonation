@@ -16,6 +16,27 @@
     <string name="text_greeting">Hello %s,</string>
     <string name="text_greeting2">how are you today?</string>
     <string name="text_greeting1"> %s Profile</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="sign_in">Sign in</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="don_t_have_a_donor_account_register_here">Don\'t have a donor account? Register here</string>
+    <string name="blood_donors_app">Blood Donors App</string>
+    <string name="feed">feed</string>
+    <string name="what_is_on_your_mind">what is on your mind</string>
+    <string name="post">post</string>
+    <string name="donation_location">donation_location</string>
+    <string name="liters">liters</string>
+    <string name="donation_date">donation_date</string>
+    <string name="donation_type">donation_type</string>
+    <string name="donation_new">donation_new</string>
+    <string name="your_favorite_donation_locations">Your favorite donation locations</string>
+    <string name="donated_this_year">donated_this_year</string>
+    <string name="ml">ml</string>
+    <string name="last_donation">Last Donation</string>
+    <string name="schedule_nothingyet">schedule_nothingyet</string>
+    <string name="add_donation">Add Donation</string>
+    <string name="schedule_buttonremove">schedule_buttonremove</string>
+    <string name="user">user :</string>
 
     <string-array name="gender">
         <item>Male</item>
