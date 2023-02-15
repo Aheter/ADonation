@@ -4,14 +4,13 @@ import android.os.Bundle
 import android.app.DatePickerDialog
 import android.os.Build
 import android.view.View
-import android.widget.AutoCompleteTextView
-import android.widget.Button
-import android.widget.DatePicker
+import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import com.google.android.material.textfield.TextInputLayout
 import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.LocalDateTime
@@ -25,11 +24,16 @@ class NewDonation: AppCompatActivity() {
         setContentView(R.layout.fragment_add_donation)
         val addBtn= findViewById<Button>(R.id.add)
         val date= findViewById<AutoCompleteTextView>(R.id.newrecord_date)
+        val liters=findViewById<EditText>(R.id.liters)
+        val Dtype=findViewById<AutoCompleteTextView>(R.id.type)
+        val type=resources.getStringArray(R.array.type)
+        val arrayAdapterT = ArrayAdapter(this,R.layout.dropdown_type_item,type)
+        Dtype.setAdapter(arrayAdapterT)
+        val location=findViewById<TextInputLayout>(R.id.location)
+        val loc=resources.getStringArray(R.array.locations)
+        val arrayAdapterL = ArrayAdapter(this,R.layout.dropdown_location_item,loc)
+        location.setAdapter(arrayAdapterL)
 
-     //   val formatter = SimpleDateFormat(" dd-MM-yyyy")
-//        val now = Date()
-//        val formatter.format(now)
-//
         val cal = Calendar.getInstance()
         updateDateInView(date, cal)
         val dateSetListener =
@@ -68,11 +72,3 @@ class NewDonation: AppCompatActivity() {
 
 }
 
-
-
-//fun getDaysAgo(daysAgo: Int): Date {
-//    val calendar = Calendar.getInstance()
-//    calendar.add(Calendar.DAY_OF_YEAR, -daysAgo)
-//
-//    return calendar.time
-//}

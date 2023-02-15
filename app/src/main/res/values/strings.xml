@@ -48,5 +48,34 @@
         <item>Other</item>
 
     </string-array>
+    <string-array name="type">
+        <item>Blood</item>
+        <item>Plasma</item>
+        <item>Platelets</item>
+    </string-array>
+
+
+    <string-array name="locations">
+        <item>NORTH</item>
+        <item>Kiryat Shmona</item>
+        <item>Nahariya</item>
+        <item>Haifa</item>
+        <item>CENTER</item>
+        <item>Tel Aviv</item>
+        <item>Holon</item>
+        <item>Petah Tikva</item>
+        <item>SHEPHELAH</item>
+        <item>Lod</item>
+        <item>Rishon LeZion</item>
+        <item>Rehovot</item>
+        <item>SOUTH</item>
+        <item>Eilat</item>
+        <item>Beer Sheva</item>
+
+    </string-array>
+
+
+
+
 
 </resources>

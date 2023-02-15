@@ -50,7 +50,7 @@
                         android:hint="@string/donation_type">
 
                         <AutoCompleteTextView
-                            android:id="@+id/editDonationType"
+                            android:id="@+id/type"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:inputType="none"
@@ -86,7 +86,7 @@
                         android:hint="@string/liters">
 
                         <EditText
-                            android:id="@+id/editTextNumber4"
+                            android:id="@+id/liters"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
@@ -99,6 +99,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
+                        android:id="@+id/location"
                         android:hint="@string/donation_location"
                         app:startIconDrawable="@drawable/ic_baseline_location_on_24">
 
