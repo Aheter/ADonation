@@ -93,20 +93,21 @@
                             android:inputType="number" />
                     </com.google.android.material.textfield.TextInputLayout>
 
-
                     <com.google.android.material.textfield.TextInputLayout
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:id="@+id/location"
                         android:hint="@string/donation_location"
                         app:startIconDrawable="@drawable/ic_baseline_location_on_24">
 
-                        <com.google.android.material.textfield.TextInputEditText
+
+                        <AutoCompleteTextView
+                            android:id="@+id/locationInput"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:inputType="textAutoCorrect" />
+                            android:inputType="none"
+                            android:singleLine="true" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.button.MaterialButton

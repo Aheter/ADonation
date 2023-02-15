@@ -18,7 +18,7 @@
             android:src="@drawable/navigation_header" />
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/user_profile_photo"
+            android:id="@+id/userProfilePhoto"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_below="@+id/header_cover_image"
@@ -69,6 +69,7 @@
                 android:text="@string/donation_history"
                 android:textColor="#fff"
                 android:textSize="14sp" />
+
         </RelativeLayout>
 
 
