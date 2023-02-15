@@ -62,20 +62,14 @@ class FragmentProfile : Fragment(){
         storage.child("profile_image").downloadUrl.addOnSuccessListener {
             Glide.with(this)
                 .load(it)
-                .into(userProfilePhoto)}
+                .into(userProfilePhoto)
+        }.addOnFailureListener {
+            Toast.makeText(activity?.applicationContext, "Failed to upload picture from storage", Toast.LENGTH_SHORT).show()
 
-            // Got the download URL for 'users/me/profile.png'
-            //imageUri = it
-            //binding.userProfilePhoto.setImageURI()
-//        }.addOnFailureListener {
-//            userProfilePhoto.setOnClickListener {
-//                selectFile()
-//                UploadImage(uid)
-//            }
-//        }
+           }
+
             userProfilePhoto.setOnClickListener{
                 selectFile()
-                UploadImage(uid)
         }
 
 
@@ -86,7 +80,8 @@ class FragmentProfile : Fragment(){
 
 
 
-private fun UploadImage(uid:String){
+private fun UploadImage(){
+    val uid = FirebaseAuth.getInstance().currentUser?.uid.toString()
     var fileName = "profile_image"
     storage = FirebaseStorage.getInstance().getReference(uid+"/"+fileName)
     imageUri?.let { storage.putFile(it)
@@ -96,6 +91,10 @@ private fun UploadImage(uid:String){
                 OnFailureListener { e: Exception? ->
                     Toast.makeText(activity?.applicationContext, "Profile photo uploading failure", Toast.LENGTH_SHORT).show()
                 })
+        //binding.userProfilePhoto.setImageURI(imageUri)
+        Glide.with(this)
+            .load(imageUri)
+            .into(binding.userProfilePhoto)
     }
 
 }
@@ -109,8 +108,10 @@ private fun UploadImage(uid:String){
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == 100) {
             imageUri = data!!.data
-            binding.userProfilePhoto.setImageURI(imageUri)
+            UploadImage()
         }
+
+
     }
     fun refreshFragment(context: Context?){
         context?.let{
