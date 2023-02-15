@@ -1,9 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--    <data>-->
-<!--        <variable-->
-<!--            name="viewmodel"-->
-<!--            type="com.example.adonation.SummaryViewModel" />-->
-<!--    </data>-->
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
