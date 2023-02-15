@@ -1,4 +1,5 @@
 package com.example.adonation
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -6,7 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
 import com.example.adonation.databinding.FragmentProfileBinding
 import com.google.android.gms.tasks.OnFailureListener
 import com.google.android.gms.tasks.OnSuccessListener
@@ -43,6 +46,7 @@ class FragmentProfile : Fragment(){
                 .get()
                 .addOnSuccessListener {
                         // Document found in the offline cache
+
                         userProfileName.text=it?.getString("name")+" Profile"
                 }
                 .addOnFailureListener {
@@ -50,13 +54,29 @@ class FragmentProfile : Fragment(){
                 }
         }else userProfileName.text="nothing"
 
+        var fileName = "profile_image"
+        storage = FirebaseStorage.getInstance().getReference(uid)
 
         val userProfilePhoto=binding.userProfilePhoto
-        userProfilePhoto.setOnClickListener{
-            selectFile()
-            UploadImage(uid)
-        }
 
+        storage.child("profile_image").downloadUrl.addOnSuccessListener {
+            Glide.with(this)
+                .load(it)
+                .into(userProfilePhoto)}
+
+            // Got the download URL for 'users/me/profile.png'
+            //imageUri = it
+            //binding.userProfilePhoto.setImageURI()
+//        }.addOnFailureListener {
+//            userProfilePhoto.setOnClickListener {
+//                selectFile()
+//                UploadImage(uid)
+//            }
+//        }
+            userProfilePhoto.setOnClickListener{
+                selectFile()
+                UploadImage(uid)
+        }
 
 
 
@@ -64,12 +84,13 @@ class FragmentProfile : Fragment(){
         return binding.root
     }
 
+
+
 private fun UploadImage(uid:String){
     var fileName = "profile_image"
     storage = FirebaseStorage.getInstance().getReference(uid+"/"+fileName)
     imageUri?.let { storage.putFile(it)
             .addOnSuccessListener(OnSuccessListener<UploadTask.TaskSnapshot> { taskSnapshot: UploadTask.TaskSnapshot? ->
-                //profilePicture.setImageURI(null);
                 Toast.makeText(activity?.applicationContext, "Successfully Uploaded profile photo", Toast.LENGTH_LONG).show()
         }).addOnFailureListener(
                 OnFailureListener { e: Exception? ->
@@ -88,8 +109,15 @@ private fun UploadImage(uid:String){
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == 100) {
             imageUri = data!!.data
-
             binding.userProfilePhoto.setImageURI(imageUri)
+        }
+    }
+    fun refreshFragment(context: Context?){
+        context?.let{
+            val fragmentManager=(context as? AppCompatActivity)?.supportFragmentManager
+            fragmentManager?.let {
+                val curentFragment = fragmentManager.findFragmentById(R.id.container)
+            }
         }
     }
 
