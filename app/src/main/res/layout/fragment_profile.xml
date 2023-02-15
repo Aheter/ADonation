@@ -49,12 +49,12 @@
                 android:src="@drawable/sharp_toc_24" />
 
             <TextView
-                android:id="@+id/user_profile_name"
-                android:layout_width="wrap_content"
+                android:id="@+id/userProfileName"
+                android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="50dp"
-                tools:text="@string/text_greeting1"
+                android:text="Hi"
                 android:textColor="#fff"
                 android:textSize="24sp"
                 android:textStyle="bold" />
@@ -63,21 +63,20 @@
                 android:id="@+id/user_profile_short_bio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/user_profile_name"
+                android:layout_below="@+id/userProfileName"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
-                android:text="@string/your_favorite_donation_locations"
+                android:text="@string/donation_history"
                 android:textColor="#fff"
                 android:textSize="14sp" />
         </RelativeLayout>
 
 
-
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/profile_layout"
-            >
+            android:layout_height="match_parent"
+            android:layout_below="@+id/profile_layout">
+
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -86,10 +85,7 @@
                 android:clickable="true"
                 android:elevation="4dp"
                 android:padding="20dp"
-                android:text="Favorite Places"
-                />
-
-
+                android:text="donations recycler view TODO" />
 
         </androidx.cardview.widget.CardView>
     </RelativeLayout>

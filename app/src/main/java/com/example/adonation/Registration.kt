@@ -1,25 +1,17 @@
 package com.example.adonation
 
-import android.annotation.SuppressLint
 import android.app.DatePickerDialog
-import android.content.ContentValues.TAG
-import android.content.Context
 import android.content.Intent
-import android.net.ConnectivityManager
-import android.net.NetworkInfo
 import android.os.Bundle
-import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.adonation.model.User
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import com.google.gson.Gson
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -123,7 +115,7 @@ class Registration : AppCompatActivity() {
                         )
                         //added user detailes
                         val userO=User(userID,inputEmail,inputPassword,name,gender,bloodType,birthday)
-
+                        intent.putExtra("id", userID)
 
 
                         documentReference.set(user).addOnSuccessListener { documentReference ->

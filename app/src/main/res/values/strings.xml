@@ -29,6 +29,8 @@
     <string name="donation_date">donation_date</string>
     <string name="donation_type">donation_type</string>
     <string name="donation_new">donation_new</string>
+    <string name="donation_history">Donation History</string>
+
     <string name="your_favorite_donation_locations">Your favorite donation locations</string>
     <string name="donated_this_year">donated_this_year</string>
     <string name="ml">ml</string>

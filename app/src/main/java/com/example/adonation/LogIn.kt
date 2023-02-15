@@ -2,12 +2,12 @@ package com.example.adonation
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -43,7 +43,6 @@ class LogIn : AppCompatActivity() {
 
 
     private fun performLogin(){
-
         val email = findViewById<EditText>(R.id.emailLoginField)
         val password = findViewById<EditText>(R.id.passwordLoginField)
         if (email.text.isEmpty() || password.text.isEmpty()) {
@@ -58,6 +57,13 @@ class LogIn : AppCompatActivity() {
                     // Sign in success, update UI with the signed-in user's information
                     Toast.makeText(baseContext, "Authentication success.", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this,HomeActivity::class.java)
+                    val user = FirebaseAuth.getInstance().currentUser
+                    if (user != null) {
+                        intent.putExtra("id", user.uid)
+
+
+                    }
+
                     startActivity(intent)
 
                 } else {
