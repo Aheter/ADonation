@@ -18,8 +18,8 @@
 
     <item
         android:id="@+id/favorite"
-        android:icon="@drawable/ic_baseline_person_24"
-        android:title="favorite" />
+        android:icon="@drawable/baseline_favorite_24"
+        android:title="favorites" />
 
 
 </menu>

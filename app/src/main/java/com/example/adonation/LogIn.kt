@@ -1,5 +1,6 @@
 package com.example.adonation
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -14,6 +15,7 @@ import com.google.firebase.ktx.Firebase
 class LogIn : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_log_in)
@@ -26,7 +28,11 @@ class LogIn : AppCompatActivity() {
             val intent = Intent(this,Registration::class.java)
             startActivity(intent)
         }
-
+        val forgotPasswordText:TextView=findViewById(R.id.forgotPasswordText)
+        forgotPasswordText.setOnClickListener{
+            val intent = Intent(this,ForgotPassword::class.java)
+            startActivity(intent)
+        }
 
         val loginBtn:Button = findViewById(R.id.loginBtn)
         loginBtn.setOnClickListener {

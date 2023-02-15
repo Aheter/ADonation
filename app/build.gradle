@@ -37,6 +37,18 @@ android {
 }
 
 dependencies {
+    //for coroutines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4'
+    //for view model property delegate
+    implementation 'androidx.fragment:fragment-ktx:1.4.1'
+    implementation 'androidx.activity:activity-ktx:1.4.0'
+
+    //for firebase coroutine support
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.6.4'
+
+    //for flow as live data
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.5.1"
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
@@ -47,12 +59,14 @@ dependencies {
     implementation"androidx.navigation:navigation-fragment-ktx:2.5.3"
     implementation"androidx.navigation:navigation-ui-ktx:2.5.3"
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
-//firebase added dependancies
+    //firebase added dependancies
     implementation platform('com.google.firebase:firebase-bom:31.2.0')
     implementation 'com.google.firebase:firebase-analytics-ktx'
     implementation 'com.google.firebase:firebase-auth-ktx'
-
     implementation 'com.google.firebase:firebase-firestore-ktx:24.4.3'
+
+    implementation "com.fasterxml.jackson.module:jackson-module-kotlin:2.14.+"
+    implementation "com.google.code.gson:gson:2.9.0"
 
 
 }

@@ -36,8 +36,10 @@
     <string name="schedule_nothingyet">schedule_nothingyet</string>
     <string name="add_donation">Add Donation</string>
     <string name="schedule_buttonremove">schedule_buttonremove</string>
-    <string name="user">user :</string>
-
+    <string name="user" translatable="false">user :</string>
+    <string name="forgot_your_password">Forgot your password?</string>
+    <string name="please_enter_the_email_you_use_to_sign_in">Please enter the email you use to sign in</string>
+    <string name="reset_password">Reset Password</string>
     <string-array name="gender">
         <item>Male</item>
         <item>Female</item>

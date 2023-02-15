@@ -11,12 +11,15 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import com.example.adonation.model.User
+import com.fasterxml.jackson.databind.ObjectMapper
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.gson.Gson
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -26,7 +29,7 @@ class Registration : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var fstore: FirebaseFirestore
     val db= Firebase.firestore
-
+    val mapper = ObjectMapper()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration)
@@ -118,6 +121,11 @@ class Registration : AppCompatActivity() {
                             "gender" to gender,
                             "bloodType" to bloodType
                         )
+                        //added user detailes
+                        val userO=User(userID,inputEmail,inputPassword,name,gender,bloodType,birthday)
+
+
+
                         documentReference.set(user).addOnSuccessListener { documentReference ->
                             Toast.makeText(baseContext, "User added successfully.",Toast.LENGTH_SHORT).show()
                         }
