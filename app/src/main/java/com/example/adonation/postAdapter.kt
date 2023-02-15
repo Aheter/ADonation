@@ -33,15 +33,6 @@ class postAdapter(val posts:List<Post>):RecyclerView.Adapter<postAdapter.PostVie
             }
         }
 
-        /*
-
-                    favBtn.setOnClickListener {
-                val position: Int = getAdapterPosition()
-                val coffeeItem: CoffeeItem = coffeeItems[position]
-                likeClick(coffeeItem, favBtn, likeCountTextView)
-            }
-         */
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int)=

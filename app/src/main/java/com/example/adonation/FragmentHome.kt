@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Recycler
+import com.example.adonation.data.FavoriteList
 import com.example.adonation.data.Post
 import com.example.adonation.data.PostsList
 import com.example.adonation.databinding.FragmentPostsBinding
@@ -49,8 +50,6 @@ class FragmentHome : Fragment() {
             val now = Calendar.getInstance().time
             val timeD = formatter.format(now)
 
-           // val formatter = DateTimeFormatter.ofPattern(" dd-MM-yyyy HH:mm")
-         //   val timeD= LocalDateTime.now().format(formatter)
             val post = Post("USER", msg, "PIC", false, timeD)
             PostsList.add(post)
             editText.setText("")
@@ -83,6 +82,10 @@ class FragmentHome : Fragment() {
             }
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                val post=PostsList.posts[viewHolder.adapterPosition]
+                if (post.isFavorite ) {
+                    FavoriteList.remove(PostsList.posts[viewHolder.adapterPosition])
+                }
                 PostsList.remove(viewHolder.adapterPosition)
                 binding.recyclerView.adapter!!.notifyItemRemoved(viewHolder.adapterPosition)
             }

@@ -43,8 +43,10 @@
             <androidx.appcompat.widget.AppCompatRadioButton
                 android:id="@+id/isFavorite"
                 android:layout_width="wrap_content"
-                android:layout_height="36dp"
-                android:textSize="20dp" />
+                android:textSize="10sp"
+                android:visibility="invisible"
+                android:layout_marginLeft="95dp"
+                android:layout_height="36dp"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

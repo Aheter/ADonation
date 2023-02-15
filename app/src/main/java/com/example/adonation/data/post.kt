@@ -13,11 +13,14 @@ object PostsList{
 }
 
 object FavoriteList{
-    val favs : MutableList<Post> = mutableListOf()
+    val posts : MutableList<Post> = mutableListOf()
     fun add(post: Post){
-        favs.add(0, post)
+        posts.add( post)
     }
-    fun remove(index:Int){
-        favs.removeAt(index)
+    fun remove(post: Post){
+        posts.remove(post)
+    }
+    fun remove(index: Int){
+        posts.removeAt(index)
     }
 }

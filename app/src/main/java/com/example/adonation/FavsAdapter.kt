@@ -14,6 +14,7 @@ class FavsAdapter (val posts:List<Post>):RecyclerView.Adapter<FavsAdapter.FavVie
 
     class FavViewHolder(private val binding: FavoriteLayoutBinding):RecyclerView.ViewHolder(binding.root){
         fun bind(post:Post){
+            Toast.makeText(binding.root.context, "in fav adapter", Toast.LENGTH_LONG).show()
             binding.userName.text=post.userName
             binding.textInPost.text=post.textInPost
             binding.postTime.text=post.postTime
@@ -25,8 +26,7 @@ class FavsAdapter (val posts:List<Post>):RecyclerView.Adapter<FavsAdapter.FavVie
                 if (post.isFavorite) {
                     FavoriteList.add(post)
                 } else {
-                    FavoriteList.favs.remove(post)
-                    //FavoriteList.remove(this.adapterPosition)
+                    FavoriteList.posts.remove(post)
                     Toast.makeText(binding.root.context, "remove", Toast.LENGTH_LONG).show()
                 }
 
@@ -34,22 +34,15 @@ class FavsAdapter (val posts:List<Post>):RecyclerView.Adapter<FavsAdapter.FavVie
             }
         }
 
-        /*
-
-                    favBtn.setOnClickListener {
-                val position: Int = getAdapterPosition()
-                val coffeeItem: CoffeeItem = coffeeItems[position]
-                likeClick(coffeeItem, favBtn, likeCountTextView)
-            }
-         */
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int)=
     FavViewHolder(FavoriteLayoutBinding.inflate(LayoutInflater.from(parent.context),parent,false))
 
-    override fun onBindViewHolder(holder: FavViewHolder, position: Int)=
-        holder.bind(posts[position])
+    override fun onBindViewHolder(holder: FavViewHolder, position: Int)
+    {holder.bind(posts[position])}
+
 
 
     override fun getItemCount()=

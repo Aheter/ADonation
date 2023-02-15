@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.adonation.data.FavoriteList
+import com.example.adonation.data.PostsList
 import com.example.adonation.databinding.FavoriteBinding
 
 class FragmentFavorite: Fragment() {
@@ -31,7 +32,7 @@ class FragmentFavorite: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.frecycler.adapter=FavsAdapter(FavoriteList.favs )
+        binding.frecycler.adapter=FavsAdapter(FavoriteList.posts )
         binding.frecycler.layoutManager= LinearLayoutManager(requireContext())
 
         ItemTouchHelper(object : ItemTouchHelper.Callback(){
@@ -49,11 +50,15 @@ class FragmentFavorite: Fragment() {
             }
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                FavoriteList.posts[viewHolder.adapterPosition].isFavorite=false
                 FavoriteList.remove(viewHolder.adapterPosition)
                 binding.frecycler.adapter!!.notifyItemRemoved(viewHolder.adapterPosition)
             }
         }).attachToRecyclerView(binding.frecycler)
+        binding.frecycler.adapter?.notifyItemInserted(0)
         Toast.makeText(binding.root.context, "im on create", Toast.LENGTH_LONG).show()
+        Toast.makeText(binding.root.context, FavoriteList.posts[0].textInPost, Toast.LENGTH_LONG).show()
+
     }
 
     override fun onDestroyView() {

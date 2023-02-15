@@ -30,21 +30,27 @@
                 android:text="@string/user"
                 android:textSize="20sp"
                 android:textStyle="bold"
+                android:paddingTop="4dp"
                 android:id="@+id/userName"/>
+
             <TextView
+                android:id="@+id/textInPost"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:text="bdika "
                 android:textSize="20sp"
-                android:textStyle="bold"
-                android:layout_marginTop="6dp"
-                android:id="@+id/textInPost"/>
+                android:textStyle="bold" />
 
             <androidx.appcompat.widget.AppCompatRadioButton
                 android:id="@+id/isFavorite"
                 android:layout_width="wrap_content"
-                android:layout_height="36dp"
-                android:textSize="20dp" />
+                android:layout_height="30dp"
+                android:textSize="10dp"
+                android:hint="add to favorite"
+                android:layout_marginLeft="95dp"/>
+
+
 
             <TextView
                 android:layout_width="match_parent"
