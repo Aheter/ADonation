@@ -60,10 +60,7 @@ class LogIn : AppCompatActivity() {
                     val user = FirebaseAuth.getInstance().currentUser
                     if (user != null) {
                         intent.putExtra("id", user.uid)
-
-
                     }
-
                     startActivity(intent)
 
                 } else {
