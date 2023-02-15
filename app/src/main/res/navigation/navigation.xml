@@ -24,4 +24,14 @@
         android:name="com.example.adonation.FragmentHome"
         android:label="fragment_posts"
         tools:layout="@layout/fragment_posts" />
+    <fragment
+        android:id="@+id/fragmentFavorite"
+        android:name="com.example.adonation.FragmentFavorite"
+        android:label="favorite"
+        tools:layout="@layout/favorite" />
+    <fragment
+        android:id="@+id/fragmentSummary"
+        android:name="com.example.adonation.FragmentSummary"
+        android:label="fragment_add_donation"
+        tools:layout="@layout/fragment_add_donation" />
 </navigation>

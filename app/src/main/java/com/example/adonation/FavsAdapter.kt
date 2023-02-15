@@ -6,13 +6,13 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.adonation.data.FavoriteList
 import com.example.adonation.data.Post
-import com.example.adonation.data.PostsList
-import com.example.adonation.databinding.PostLayoutBinding
+import com.example.adonation.databinding.FavoriteBinding
+import com.example.adonation.databinding.FavoriteLayoutBinding
 
 
-class postAdapter(val posts:List<Post>):RecyclerView.Adapter<postAdapter.PostViewHolder>() {
+class FavsAdapter (val posts:List<Post>):RecyclerView.Adapter<FavsAdapter.FavViewHolder>() {
 
-    class PostViewHolder(private val binding: PostLayoutBinding):RecyclerView.ViewHolder(binding.root){
+    class FavViewHolder(private val binding: FavoriteLayoutBinding):RecyclerView.ViewHolder(binding.root){
         fun bind(post:Post){
             binding.userName.text=post.userName
             binding.textInPost.text=post.textInPost
@@ -24,11 +24,12 @@ class postAdapter(val posts:List<Post>):RecyclerView.Adapter<postAdapter.PostVie
                 binding.isFavorite.isChecked=post.isFavorite
                 if (post.isFavorite) {
                     FavoriteList.add(post)
-                    Toast.makeText(binding.root.context, "addddd", Toast.LENGTH_LONG).show()
                 } else {
-                    FavoriteList.remove(this.adapterPosition)
+                    FavoriteList.favs.remove(post)
+                    //FavoriteList.remove(this.adapterPosition)
                     Toast.makeText(binding.root.context, "remove", Toast.LENGTH_LONG).show()
                 }
+
 
             }
         }
@@ -45,10 +46,9 @@ class postAdapter(val posts:List<Post>):RecyclerView.Adapter<postAdapter.PostVie
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int)=
-       PostViewHolder(PostLayoutBinding.inflate(LayoutInflater.from(parent.context),parent,false))
+    FavViewHolder(FavoriteLayoutBinding.inflate(LayoutInflater.from(parent.context),parent,false))
 
-
-    override fun onBindViewHolder(holder: PostViewHolder, position: Int)=
+    override fun onBindViewHolder(holder: FavViewHolder, position: Int)=
         holder.bind(posts[position])
 
 

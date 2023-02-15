@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.adonation.model.User
-import com.fasterxml.jackson.databind.ObjectMapper
+//import com.fasterxml.jackson.databind.ObjectMapper
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -21,7 +21,7 @@ class Registration : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var fstore: FirebaseFirestore
     val db= Firebase.firestore
-    val mapper = ObjectMapper()
+    //val mapper = ObjectMapper()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration)
@@ -33,7 +33,6 @@ class Registration : AppCompatActivity() {
             val intent = Intent(this,LogIn::class.java)
             startActivity(intent)
         }
-
 
 
         val autoCompleteGender=findViewById<AutoCompleteTextView>(R.id.autoCompleteGender)
