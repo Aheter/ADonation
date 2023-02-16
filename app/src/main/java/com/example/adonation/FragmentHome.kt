@@ -25,6 +25,7 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -96,7 +97,6 @@ class FragmentHome : Fragment() {
             val post = Post(userName, msg, imageUri, false, timeD)
             //load posts to firebase
             UploadPost(post)
-            PostsList.add(post)
             editText.setText("")
             binding.recyclerView.adapter?.notifyItemInserted(0)
             binding.recyclerView.scrollToPosition(0)
@@ -108,8 +108,25 @@ class FragmentHome : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val mutableList : MutableList<Post> = ArrayList()
 
-                binding.recyclerView.adapter = postAdapter(PostsList.posts)
+        val documentpostsRef = db.collection("posts")
+            .orderBy("postTime" ,  Query.Direction.DESCENDING)
+        documentpostsRef.get()
+            .addOnSuccessListener { documents ->
+                for (document in documents) {
+                    val post = Post(document.get("userName").toString()
+                        ,document.get("textInPost").toString()
+                        ,document.get("post_image").toString()
+                        ,document.get("favorite").toString().toBoolean()
+                        ,document.get("postTime").toString())
+                    mutableList.add(post)
+                    binding.recyclerView.adapter?.notifyItemInserted(0)
+                    binding.recyclerView.scrollToPosition(0)
+                }
+
+            }
+                binding.recyclerView.adapter = postAdapter(mutableList)
                 binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
                 ItemTouchHelper(object : ItemTouchHelper.Callback() {
@@ -154,8 +171,8 @@ class FragmentHome : Fragment() {
         auth = FirebaseAuth.getInstance()
         val userID = auth.currentUser?.uid.toString()
         val postID=getRandomString()
-        val documentReference = db.collection("posts").document(userID)
-            .collection("posts").document(postID)
+        val documentReference = db.collection("posts").document(postID)
+
 
         documentReference.set(post).addOnSuccessListener { documentReference ->
             Toast.makeText(context, "Donation added successfully.",Toast.LENGTH_SHORT).show()
@@ -163,6 +180,8 @@ class FragmentHome : Fragment() {
             .addOnFailureListener { e ->
                 Toast.makeText(context, "Error adding document.",Toast.LENGTH_SHORT).show()
             }
+
+        binding.recyclerView.adapter?.notifyItemInserted(0)
 
     }
 
