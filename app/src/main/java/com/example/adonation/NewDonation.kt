@@ -89,31 +89,40 @@ class NewDonation: AppCompatActivity() {
         date!!.setText(sdf.format(cal.getTime()))
     }
 
-
-
-    private fun addDonation(){
-    auth = FirebaseAuth.getInstance()
-    val db= Firebase.firestore
-    val userID = auth.currentUser?.uid.toString()
-    val documentReference = db.collection("donations").document(userID)
-    val dateField= findViewById<AutoCompleteTextView>(R.id.newrecord_date)
-    if (binding.liters.text.isEmpty() || dateField.text.isEmpty()|| binding.type.text.isEmpty()|| binding.locationInput.text.isEmpty()) {
-        Toast.makeText(this, "Please, fill in all fields.", Toast.LENGTH_LONG).show()
-        return
+    fun getRandomString(length: Int=9) : String {
+        val allowedChars = ('A'..'Z') + ('a'..'z') + ('0'..'9')
+        return (1..length)
+            .map { allowedChars.random() }
+            .joinToString("")
     }
 
-    val date=dateField.text.toString().trim()
-    val liters=binding.liters.text.toString().trim()
-    val btype=binding.type.text.toString().trim()
-    val location=binding.locationInput.text.toString().trim()
+    private fun addDonation(){
+        auth = FirebaseAuth.getInstance()
+        val db= Firebase.firestore
+        val userID = auth.currentUser?.uid.toString()
+        val documentReference = db.collection("donations").document(userID)
+        val donationid=getRandomString()
 
-    // Create a new donation
-    val donation = hashMapOf(
-        "location" to location,
-        "date" to date,
-        "btype" to btype,
-        "liters" to liters
-    )
+
+        val dateField= findViewById<AutoCompleteTextView>(R.id.newrecord_date)
+        if (binding.liters.text.isEmpty() || dateField.text.isEmpty()|| binding.type.text.isEmpty()|| binding.locationInput.text.isEmpty()) {
+            Toast.makeText(this, "Please, fill in all fields.", Toast.LENGTH_LONG).show()
+            return
+        }
+
+        val date=dateField.text.toString().trim()
+        val liters=binding.liters.text.toString().trim()
+        val btype=binding.type.text.toString().trim()
+        val location=binding.locationInput.text.toString().trim()
+
+        // Create a new donation
+        val donation = hashMapOf(
+            "donationid" to donationid,
+            "location" to location,
+            "date" to date,
+            "btype" to btype,
+            "liters" to liters
+        )
 
 
 
