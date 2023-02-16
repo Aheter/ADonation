@@ -1,6 +1,6 @@
 package com.example.adonation.data
 
-data class Post (val userName:String, val textInPost:String, val post_image:String?, var isFavorite:Boolean, val postTime: String)
+data class Post (val userName:String, val textInPost:String, val post_image:String, var isFavorite:Boolean, val postTime: String)
 
 object PostsList{
     val posts : MutableList<Post> = mutableListOf()
