@@ -56,7 +56,6 @@ class FragmentFavorite: Fragment() {
             }
         }).attachToRecyclerView(binding.frecycler)
         binding.frecycler.adapter?.notifyItemInserted(0)
-        Toast.makeText(binding.root.context, "im on create", Toast.LENGTH_LONG).show()
         Toast.makeText(binding.root.context, FavoriteList.posts[0].textInPost, Toast.LENGTH_LONG).show()
 
     }
