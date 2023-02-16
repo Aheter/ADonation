@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.adonation.data.FavoriteList
 import com.example.adonation.data.Post
 import com.example.adonation.data.PostsList
@@ -18,6 +19,7 @@ class postAdapter(val posts:List<Post>):RecyclerView.Adapter<postAdapter.PostVie
             binding.textInPost.text=post.textInPost
             binding.postTime.text=post.postTime
             binding.isFavorite.isChecked=post.isFavorite
+            Glide.with(binding.root).load(post.post_image).circleCrop()
 
             binding.isFavorite.setOnClickListener {
                 post.isFavorite = ! post.isFavorite

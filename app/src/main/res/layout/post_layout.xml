@@ -17,7 +17,9 @@
         <ImageView
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:src="@drawable/profile" />
+            android:id="@+id/image"
+            android:src="@drawable/profile"
+            android:url="url"/>
 
         <LinearLayout
             android:layout_width="match_parent"
