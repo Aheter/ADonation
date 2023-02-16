@@ -9,6 +9,7 @@
     <string name="password">סיסמה</string>
     <string name="bloodtype">סוג דם</string>
     <string name="newdonor_auth">הכנס פרטי הזדהות</string>
+    <string name="newdonor_createnew">יצירת חשבון תורם חדש</string>
     <string name="registration_title">הרשם כאן</string>
     <string name="text_greeting">שלום %s</string>
     <string name="text_greeting2">מה שלומך היום?</string>
@@ -31,4 +32,7 @@
     <string name="ml">מל</string>
     <string name="last_donation">תרומה אחרונה</string>
     <string name="add_donation">הוספת תרומה</string>
+    <string name="forgot_your_password">שכחת סיסמה?</string>
+    <string name="please_enter_the_email_you_use_to_sign_in">הכנס את המייל שנרשמת איתו</string>
+    <string name="reset_password">איפוס סיסמה</string>
 </resources>

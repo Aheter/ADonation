@@ -34,4 +34,9 @@
         android:name="com.example.adonation.FragmentSummary"
         android:label="fragment_add_donation"
         tools:layout="@layout/fragment_add_donation" />
+    <activity
+        android:id="@+id/newDonation"
+        android:name="com.example.adonation.NewDonation"
+        android:label="fragment_add_donation"
+        tools:layout="@layout/fragment_add_donation" />
 </navigation>

@@ -55,8 +55,8 @@ class FragmentFavorite: Fragment() {
                 binding.frecycler.adapter!!.notifyItemRemoved(viewHolder.adapterPosition)
             }
         }).attachToRecyclerView(binding.frecycler)
-        binding.frecycler.adapter?.notifyItemInserted(0)
-        Toast.makeText(binding.root.context, FavoriteList.posts[0].textInPost, Toast.LENGTH_LONG).show()
+        //binding.frecycler.adapter?.notifyItemInserted(0)
+
 
     }
 
