@@ -24,10 +24,10 @@ class postAdapter(val posts:List<Post>):RecyclerView.Adapter<postAdapter.PostVie
                 binding.isFavorite.isChecked=post.isFavorite
                 if (post.isFavorite) {
                     FavoriteList.add(post)
-                    Toast.makeText(binding.root.context, "addddd", Toast.LENGTH_LONG).show()
+                    Toast.makeText(binding.root.context, "added to favorite", Toast.LENGTH_LONG).show()
                 } else {
                     FavoriteList.remove(this.adapterPosition)
-                    Toast.makeText(binding.root.context, "remove", Toast.LENGTH_LONG).show()
+                    Toast.makeText(binding.root.context, "removed", Toast.LENGTH_LONG).show()
                 }
 
             }
