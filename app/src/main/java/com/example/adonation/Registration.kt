@@ -105,7 +105,7 @@ class Registration : AppCompatActivity() {
                     currentUser?.let { val userID = currentUser.uid
                         val documentReference = db.collection("users").document(userID)
 
-                        // Create a new user with a first, middle, and last name
+                        // Create a new user
                         val user = hashMapOf(
                             "name" to name,
                             "birthday" to birthday,

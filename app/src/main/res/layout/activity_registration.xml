@@ -52,12 +52,16 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/password"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        app:passwordToggleEnabled="true"
+                        app:passwordToggleTint="@color/colorAccentLight">
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/textPasswordField"
-                            android:inputType="textPersonName"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"/>
+                            android:layout_height="match_parent"
+                            android:inputType="textPassword"
+
+                            />
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
                 <LinearLayout
