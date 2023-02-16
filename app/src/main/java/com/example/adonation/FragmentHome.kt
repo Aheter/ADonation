@@ -43,7 +43,7 @@ class FragmentHome : Fragment() {
     private val binding get() = _binding!!
     private lateinit var auth: FirebaseAuth
 
-    var imageUri: String? = null
+    var imageUrl: String? = ""
     private lateinit var fstore: FirebaseFirestore
     val db= Firebase.firestore
     private lateinit var firebaseReference:FirebaseFirestore
@@ -74,7 +74,7 @@ class FragmentHome : Fragment() {
 
 
         storage.child("profile_image").downloadUrl.addOnSuccessListener {
-            imageUri=it?.toString()
+            imageUrl=it?.toString()
         }.addOnFailureListener {
             Toast.makeText(activity?.applicationContext, "Failed to upload picture from storage", Toast.LENGTH_SHORT).show()
 
@@ -94,7 +94,7 @@ class FragmentHome : Fragment() {
             val now = Calendar.getInstance().time
             val timeD = formatter.format(now)
 
-            val post = Post(userName, msg, imageUri, false, timeD)
+            val post = Post(userName, msg, imageUrl.toString(), false, timeD)
             //load posts to firebase
             UploadPost(post)
             editText.setText("")
@@ -117,7 +117,7 @@ class FragmentHome : Fragment() {
                 for (document in documents) {
                     val post = Post(document.get("userName").toString()
                         ,document.get("textInPost").toString()
-                        ,document.get("post_image").toString()
+                        ,document.get("post_image").toString().orEmpty()
                         ,document.get("favorite").toString().toBoolean()
                         ,document.get("postTime").toString())
                     mutableList.add(post)
