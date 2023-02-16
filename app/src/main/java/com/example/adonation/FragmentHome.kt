@@ -108,34 +108,7 @@ class FragmentHome : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        auth = FirebaseAuth.getInstance()
-//        val uid = auth.currentUser?.uid.toString()
-//        val documentpostsRef = db.collection("posts")
-//        val usersRef = db.collection("posts")
-//        val list: MutableList<String> = ArrayList()
-//
-//        usersRef.get().addOnSuccessListener { documents ->
-//              for (document in documents) {
-//                            list.add(document.id)
-//                        }
-//
-//                for ( it in list) {
-//
-//                }
-//                }
 
-            //.collection("posts").document(uid)
-        // documentpostsRef.orderBy("state").orderBy("population", Query.Direction.DESCENDING)
-//        db.collection("posts",).document(Any?).collection("ImagesList")
-//        documentpostsRef.get().addOnSuccessListener { documents ->
-//                for (document in documents) {
-//                    for (document in document["posts"])
-////                    val ps = document["pass"].toString()
-////                    val us = document["userName"].toString()
-////                    dataSets += UserDataInput(pass = ps, userName = us)
-//                }
-//            }
-        //change posts
                 binding.recyclerView.adapter = postAdapter(PostsList.posts)
                 binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
