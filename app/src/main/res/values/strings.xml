@@ -32,7 +32,7 @@
     <string name="donation_history">Donation History</string>
 
     <string name="your_favorite_donation_locations">Your favorite donation locations</string>
-    <string name="donated_this_year">donated_this_year</string>
+    <string name="donated_this_year">Donated so far</string>
     <string name="ml">ml</string>
     <string name="last_donation">Last Donation</string>
     <string name="schedule_nothingyet">schedule_nothingyet</string>

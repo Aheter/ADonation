@@ -1,34 +1,30 @@
 package com.example.adonation
 
-import android.os.Bundle
 import android.app.DatePickerDialog
-import android.os.Build
+import android.os.Bundle
 import android.view.View
 import android.widget.*
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.DialogFragment
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
 import com.example.adonation.databinding.FragmentAddDonationBinding
-import com.example.adonation.databinding.FragmentProfileBinding
-import com.example.adonation.model.User
-import com.google.android.material.textfield.TextInputLayout
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import java.text.SimpleDateFormat
-import java.time.LocalDate
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
 import java.util.*
+
+
+
 
 class NewDonation: AppCompatActivity() {
     private var _binding: FragmentAddDonationBinding?=null
     private val binding get() = _binding!!
     private lateinit var auth: FirebaseAuth
     private lateinit var fstore: FirebaseFirestore
+    val db= Firebase.firestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -98,11 +94,10 @@ class NewDonation: AppCompatActivity() {
 
     private fun addDonation(){
         auth = FirebaseAuth.getInstance()
-        val db= Firebase.firestore
         val userID = auth.currentUser?.uid.toString()
-        val documentReference = db.collection("donations").document(userID)
         val donationid=getRandomString()
-
+        val documentReference = db.collection("donations").document(userID)
+            .collection("donations").document(donationid)
 
         val dateField= findViewById<AutoCompleteTextView>(R.id.newrecord_date)
         if (binding.liters.text.isEmpty() || dateField.text.isEmpty()|| binding.type.text.isEmpty()|| binding.locationInput.text.isEmpty()) {
@@ -111,29 +106,64 @@ class NewDonation: AppCompatActivity() {
         }
 
         val date=dateField.text.toString().trim()
-        val liters=binding.liters.text.toString().trim()
-        val btype=binding.type.text.toString().trim()
+        val liters=binding.liters.text.toString().toDouble()
+        val type=binding.type.text.toString().trim()
         val location=binding.locationInput.text.toString().trim()
 
         // Create a new donation
         val donation = hashMapOf(
-            "donationid" to donationid,
             "location" to location,
             "date" to date,
-            "btype" to btype,
+            "type" to type,
             "liters" to liters
         )
-
-
-
     documentReference.set(donation).addOnSuccessListener { documentReference ->
         Toast.makeText(baseContext, "Donation added successfully.",Toast.LENGTH_SHORT).show()
+        updateSummary(userID,date,liters,type)
     }
         .addOnFailureListener { e ->
             Toast.makeText(baseContext, "Error adding document.",Toast.LENGTH_SHORT).show()
         }
 
 }
+    private fun updateSummary(uid:String,date:String,liters:Double,type:String){
+        val donatedBaseValue=0
+        val documentUserRef = db.collection("users").document(uid)
+        val documentSummaryRef = db.collection("users").document(uid).collection("summary").document(uid)
+
+        documentSummaryRef.get().addOnCompleteListener { task: Task<DocumentSnapshot> ->
+            val document = task.result
+
+            if (task.isSuccessful) {
+                if (document.exists()) {
+                    var num:Double=document.get("donated").toString().toDouble()+liters
+                    documentSummaryRef.update("donated",num)
+                    documentSummaryRef.update("date",date)
+                    documentSummaryRef.update("type",type)
+
+                    Toast.makeText(baseContext, "Document exists!",Toast.LENGTH_SHORT).show()
+                } else {
+
+                    val summary = hashMapOf(
+                        "donated" to liters,
+                        "type" to type,
+                        "date" to date
+                    )
+                    documentSummaryRef.set(summary).addOnSuccessListener { documentSummaryRef ->
+                        Toast.makeText(baseContext, "Summary added successfully.",Toast.LENGTH_SHORT).show()
+                        // updateSummary(userID)
+                    }
+                        .addOnFailureListener { e ->
+                            Toast.makeText(baseContext, "Error adding summary.",Toast.LENGTH_SHORT).show()
+                        }
+                }
+            } else {
+                Toast.makeText(baseContext, "Failed with:"+task.exception,Toast.LENGTH_SHORT).show()
+            }
+        }
+
+
+    }
 
 }
 
